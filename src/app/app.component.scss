@@ -1,0 +1,244 @@
+.img-size {
+    width: 198px;
+    height: 45.26px;
+    object-fit: scale-down;
+}
+
+.active {
+    background-color: #1773BB;
+}
+
+.toolbar {
+    background-color: #2188D9;
+    color: #ffffff;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 72px !important;
+}
+
+.main-card {
+    padding: 32px 40px;
+}
+
+.header-text {
+    width: 186px;
+    height: 45px;
+
+    /* Heading/H2 */
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 140%;
+
+    color: #060C1B;
+}
+
+.h-20 {
+    height: 20px;
+}
+
+.mr-40 {
+    margin-right: 40px;
+}
+
+.mat-button-toggle-checked {
+    width: 80px !important;
+    height: 50px !important;
+    background: #2188D9;
+    color: #ffffff;
+    text-align: center !important;
+}
+
+.mat-button-toggle {
+    width: 80px !important;
+    height: 50px !important;
+    text-align: center !important;
+}
+
+:host::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0.65em 0 0.85em 0 !important;
+    }
+
+    .mat-form-field-infix {
+        border-top: 0.64375em solid transparent !important
+    }
+
+    .icon-color {
+        color: #B8B9BC !important;
+
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-prefix,
+    .mat-form-field-appearance-outline .mat-form-field-suffix {
+        top: .45em !important;
+        margin-right: 10px;
+    }
+
+    .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+        padding-top: 6px !important;
+    }
+}
+
+.overflow-scroll {
+    overflow: scroll !important;
+    scrollbar-width: thin !important;
+    height: 65vh !important;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+.submission {
+    border: 1px solid #B8B9BC;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.red-eclipes {
+    width: 12px !important;
+    height: 12px !important;
+    background: #FF3D00;
+    border-radius: 50%;
+    display: flex;
+    margin-top: 2px;
+}
+
+.green-eclipes {
+    width: 12px !important;
+    height: 12px !important;
+    background: #53D86A;
+    border-radius: 50%;
+    display: flex;
+    margin-top: 2px;
+}
+
+.gray-eclipes {
+    width: 12px !important;
+    height: 12px !important;
+    background: #B8B9BC;
+    border-radius: 50%;
+    display: flex;
+    margin-top: 2px;
+}
+
+.red {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FF3D00;
+}
+.agm-map-container-inner {
+    width: inherit;
+    height: 65vh;
+}
+
+.mr-8 {
+    margin-right: 8px !important;
+}
+
+.text-gray {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    /* identical to box height, or 21px */
+
+    display: flex;
+    align-items: center;
+
+    /* Color/Black/Borders */
+
+    color: #B8B9BC;
+}
+
+.text-normal {
+    /* Body/P3 */
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    /* identical to box height, or 21px */
+
+    display: flex;
+    align-items: center;
+
+    /* Color/Black/Heading */
+
+    color: #060C1B;
+}
+
+.workFlow {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    /* or 25px */
+
+    display: flex;
+    align-items: center;
+
+    /* Color/Black/Heading */
+
+    color: #060C1B;
+
+}
+
+.btn-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.success {
+    background: #D7E5DA;
+    padding: 10px 16px !important;
+    /* Color/Success */
+    border: 1px solid #53D86A;
+    border-radius: 4px;
+    color: #53D86A;
+}
+
+.disabled {
+    background: #ECECED;
+    padding: 10px 16px !important;
+    /* Color/Black/Borders */
+    border: 1px solid #B8B9BC;
+    border-radius: 4px;
+    color: #B8B9BC;
+}
+
+.warn {
+    background: rgba(255, 61, 0, 0.1);
+    padding: 10px 16px !important;
+    /* Color/Error */
+    border: 1px solid #FF3D00;
+    border-radius: 4px;
+    color: #FF3D00;
+}
+:host::ng-deep{
+    .mat-button{
+        .warn, .disabled .success{
+            padding-right: 16px !important;
+            padding-left: 16px !important;
+        }
+    }
+}

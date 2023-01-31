@@ -1,0 +1,98 @@
+
+@import './fonts/Roboto/stylesheet.css';
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body,
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+a,
+b {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+body {
+	&.theme-ecap {
+		background: #fff;
+		.primary {
+			background: transparent !important;
+			color: rgba(0, 0, 0, 0.6) !important;
+		}
+	}
+
+	font-size: 16px;
+	font-family: 'Roboto';
+	color: black;
+}
+
+html,
+body {
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
+	min-width: 320px;
+}
+
+input,
+select,
+textarea {
+	font-family: 'Roboto' !important;
+	font-size: 16px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+.px-16{
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+}
+
+.px-32{
+	padding-left: 32px !important;
+	padding-right: 32px !important;
+}
+.py-16{
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
+}
+
+.h-100-p{
+	height: 100% !important;
+}
+
+.w-100-p{
+	width: 100% !important;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.custom-fileter-area {
+	.custom-filter-body {
+		mat-form-field.mat-form-field {
+			.mat-input-wrapper {
+				font-size: 14px !important;
+			}
+		}
+	}
+}

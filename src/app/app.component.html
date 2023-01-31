@@ -1,0 +1,116 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" class="px-32">
+    <img src="../assets/images/ZenduForms.png" alt="ZenduForm" class="img-size">
+    <div fxLayout="row" fxLayoutAlign="start center" class="h-100-p">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px" class="px-16 h-100-p cursor-pointer"
+        *ngFor="let menu of menuList" [ngClass]="{'active': menu.isActive}">
+        <mat-icon>{{menu?.icon}}</mat-icon>
+        <span>{{menu?.name}}</span>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <mat-icon class="cursor-pointer">notifications</mat-icon>
+      <mat-icon class="cursor-pointer">logout</mat-icon>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<div fxLayout="column" class="main-card" fxLayoutAlign="start start" fxLayoutGap="32px">
+  <span class="header-text">Submissions</span>
+  <div class="w-100-p" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="121px">
+    <div fxFlex="70" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="40px">
+      <mat-form-field fxFlex="40" appearance="outline">
+        <mat-label>Search</mat-label>
+        <mat-icon matPrefix class="icon-color">search</mat-icon>
+        <input type="text" matInput>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="20" fxFlex="auto" fxFlex.gt-sm="20" ngClass.gt-md="ml-8" appearance="outline">
+        <mat-label>Select Form</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let form of forms" value="form.id">
+            {{ form.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="20" fxFlex="auto" fxFlex.gt-sm="20" ngClass.gt-md="ml-8" appearance="outline">
+        <mat-label>Select Status</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let form of forms" value="form.id">
+            {{ form.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="20" appearance="outline">
+        <mat-label>Select Date</mat-label>
+        <input matInput [matDatepicker]="date">
+        <mat-datepicker-toggle matPrefix [for]="date">
+          <mat-icon matDatepickerToggleIcon class="icon-color">date_range</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="27.5px">
+      <mat-button-toggle-group name="favoriteColor" #group="matButtonToggleGroup" value="map">
+        <mat-button-toggle value="map" (change)="onValChange($event.value)">Map</mat-button-toggle>
+        <mat-button-toggle value="list" (change)="onValChange($event.value)">List</mat-button-toggle>
+      </mat-button-toggle-group>
+      <button mat-button class="btn" color="primary">
+        <mat-icon svgIcon="export"></mat-icon>
+        Export
+      </button>
+    </div>
+  </div>
+  <div *ngIf="showMap" fxFlex="100" class="w-100-p" fxLayout="row" fxLayoutAlign="space-between center" fxlayoutGap="40px">
+    <div fxFlex="28" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px" class="overflow-scroll">
+      <div fxLayout="column" *ngFor="let sub of submissions" fxLayoutAlign="start start" fxLayoutGap="8px"
+        class="submission w-100-p">
+        <div fxLayout="row" fxFlex="100" class="w-100-p" fxLayoutAlign="space-between start">
+          <div fxLayout="column" fxFlex="100" fxLayoutAlign="start start" fxLayoutGap="8px">
+            <span class="workFlow" fxFlex="100" fxLayout="row" fxLayoutGap="4px">
+              <span>Work Flow:</span>
+              <span>{{sub?.workFlow}}</span>
+            </span>
+            <span fxFlex="100" fxLayout="row" fxLayoutGap="4px">
+              <span class="text-gray">From:</span>
+              <span class="text-normal">{{sub?.from}}</span>
+            </span>
+            <span fxFlex="100" fxLayout="row" fxLayoutGap="4px">
+              <span class="text-gray">To:</span>
+              <span class="text-normal">{{sub?.to}}</span>
+            </span>
+            <span fxFlex="100" fxLayout="row" fxLayoutGap="4px">
+              <span class="text-gray">Due Date:</span>
+              <span class="red">{{sub?.due}}</span>
+            </span>
+          </div>
+          <div fxFlex="100" fxLayoutAlign="end start">
+            <div *ngIf="sub.status == 'Uncomplete'" fxLayout="row" fxLayoutGap="8px" class="warn">
+              <span class="red-eclipes"></span>
+              <span class="btn-text">{{sub?.status}}</span>
+            </div>
+            <div *ngIf="sub.status == 'Low Risk'" fxLayout="row" fxLayoutGap="8px" class="success">
+              <span class="green-eclipes"></span>
+              <span class="btn-text">{{sub?.status}}</span>
+            </div>
+            <div *ngIf="sub.status == 'Needs Review'" fxLayout="row" fxLayoutGap="8px" disabled class="disabled">
+              <span class="gray-eclipes"></span>
+              <span class="btn-text">{{sub?.status}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="70" fxLayout="row">
+      <agm-map fxFlex="100"  [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" style="height: 65vh"
+        (mapClick)="mapClicked($event)">
+
+        <agm-marker *ngFor="let m of markers; let i = index"
+          [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable">
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
